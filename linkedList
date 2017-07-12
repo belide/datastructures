@@ -1,0 +1,53 @@
+
+function LinkedList() { // A LinkedList constructor function
+  //These are all private variables(and not properties)that we will need later 
+  let length = 0,  
+      head = null, 
+      list = []; 
+  
+  let Node = function(element){ 
+    this.element = element; 
+    this.next = null;
+  }; 
+
+
+
+  
+//   All methods assigned as properties (because of use of this keyword of the linkedList class
+
+  this.head = function(){
+    return head; 
+  }; 
+  
+  
+  this.node = function(entry){
+   return new Node(entry);
+  }; 
+  
+  
+  this.size = function(){
+    return length; 
+  }; 
+  
+  
+  this.content = function(){
+    return list; 
+  }; 
+  
+
+  
+  this.add = function(element){
+    length ++;
+    const item = new Node(element); 
+    if (!head){
+      head = item; 
+      list.push(head); 
+    } else{
+      list.push(item);
+      list[length-2].next = item;
+    }
+  };
+  
+  
+  }
+  
