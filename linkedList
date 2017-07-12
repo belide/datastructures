@@ -1,10 +1,10 @@
 
 function LinkedList() { // A LinkedList constructor function
+
   //These are all private variables(and not properties)that we will need later 
   let length = 0,  
       head = null, 
-      list = []; 
-  
+      list = [];   
   let Node = function(element){ 
     this.element = element; 
     this.next = null;
@@ -13,7 +13,8 @@ function LinkedList() { // A LinkedList constructor function
 
 
   
-//   All methods assigned as properties (because of use of this keyword of the linkedList class
+//All methods assigned as properties (because of use of this keyword of the linkedList class). All private variables are 
+//accessible outside the constructor scope through function invocation. Otherwise the values do not update.  
 
   this.head = function(){
     return head; 
@@ -35,7 +36,9 @@ function LinkedList() { // A LinkedList constructor function
   }; 
   
 
-  
+
+//All functions that require an argument to make changes to the values of the private variables. 
+
   this.add = function(element){
     length ++;
     const item = new Node(element); 
@@ -49,5 +52,30 @@ function LinkedList() { // A LinkedList constructor function
   };
   
   
+  
+this.remove = function(input){ 
+    const indexOfElementInList = list.map((entry) => entry.element)
+          .findIndex((elm) => elm === input);  
+    
+    if (indexOfElementInList > 0 && indexOfElementInList === list.length-1){
+    list[indexOfElementInList -1].next = null;  
+    list.splice(indexOfElementInList, 1); 
+    length = length -1; 
+      
+  } if (indexOfElementInList > 0 && indexOfElementInList !== list.length-1){
+    list[indexOfElementInList -1].next = list[indexOfElementInList + 1];  
+    list.splice(indexOfElementInList, 1); 
+    length = length -1; 
+    
+  } if (indexOfElementInList === 0){
+      head = list[indexOfElementInList + 1]; 
+      list.splice(indexOfElementInList, 1);
+      length = length-1; 
+  } else {
+    console.log("The input does not exist in this linkedList"); 
   }
+}; 
+  
+  
+}
   
