@@ -52,30 +52,27 @@ function LinkedList() { // A LinkedList constructor function
   };
   
   
-  
-this.remove = function(input){ 
+  this.remove = function (input) { 
     const indexOfElementInList = list.map((entry) => entry.element)
-          .findIndex((elm) => elm === input);  
-    
+          .findIndex((elm) => elm === input);     
     if (indexOfElementInList > 0 && indexOfElementInList === list.length-1){
     list[indexOfElementInList -1].next = null;  
     list.splice(indexOfElementInList, 1); 
-    length = length -1; 
-      
+    length = length -1;      
   } if (indexOfElementInList > 0 && indexOfElementInList !== list.length-1){
     list[indexOfElementInList -1].next = list[indexOfElementInList + 1];  
     list.splice(indexOfElementInList, 1); 
-    length = length -1; 
-    
-  } if (indexOfElementInList === 0){
+    length = length -1;    
+  } if (indexOfElementInList === 0 && list.length > 1){
       head = list[indexOfElementInList + 1]; 
       list.splice(indexOfElementInList, 1);
       length = length-1; 
-  } else {
-    console.log("The input does not exist in this linkedList"); 
+   } if (indexOfElementInList === 0 && list.length === 1){
+      head = null; 
+      list.splice(0, 1);
+      length = 0;
+    } 
   }
-}; 
-  
   
 }
   
