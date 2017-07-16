@@ -74,5 +74,11 @@ function LinkedList() { // A LinkedList constructor function
     } 
   }
   
+  
+ this.indexOf = function(input){
+    return list.map((entry) => entry.element)
+          .findIndex((elm) => elm === input); 
+  }
+  
 }
   
