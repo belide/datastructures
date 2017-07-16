@@ -80,5 +80,16 @@ function LinkedList() { // A LinkedList constructor function
           .findIndex((elm) => elm === input); 
   }
   
+  
+ this.elementAt = function(index){
+   if (list[index]){
+     return list[index].element; 
+   } else {
+     return undefined; 
+   }
+   
+   
+   
+ }
 }
   
