@@ -37,7 +37,8 @@ function LinkedList() { // A LinkedList constructor function
   
 
 
-//All functions that require an argument to make changes to the values of the private variables. 
+//All functions that require/or not require an argument to either make changes to the values of the private variables or just return some information about the 
+//linkedList class object
 
   this.add = function(element){
     length ++;
@@ -87,9 +88,16 @@ function LinkedList() { // A LinkedList constructor function
    } else {
      return undefined; 
    }
-   
-   
-   
  }
+ 
+  this.isEmpty = function(){
+   if (list.length === 0) {
+     return true; 
+   } else {
+     return false; 
+   }
+ }
+ 
+ 
 }
   
