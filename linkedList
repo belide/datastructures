@@ -98,29 +98,35 @@ function LinkedList() { // A LinkedList constructor function
    }
  }; 
  
- 
  this.removeAt = (index) => {
+    let removedElement; 
     if (index > 0 && index === list.length-1){
+    removedElement = list[index].element
     list[index -1].next = null;  
     list.splice(index, 1); 
     length = length -1;      
   } if (index > 0 && index < list.length-1){
+    removedElement = list[index].element
     list[index -1].next = list[index + 1];  
     list.splice(index, 1); 
     length = length -1;    
-  } if (index === 0 && list.length > 1){
-      head = list[index + 1]; 
-      list.splice(index, 1);
-      length = length-1; 
-   } if (index === 0 && list.length === 1){
+  } if (index === 0 && list.length === 1){
+      removedElement = list[index].element
       head = null; 
       list.splice(0, 1);
       length = length -1; 
+   } if (index === 0 && list.length > 1){
+      removedElement = list[0].element
+      head = list[1]; 
+      console.log(head); 
+      list.splice(0, 1);
+      length = length-1; 
    } if (index < 0 || index > list.length -1){
      return null; 
    }
-
+   return removedElement; 
  }; 
+ 
  
 }
   
