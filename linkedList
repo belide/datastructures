@@ -73,13 +73,13 @@ function LinkedList() { // A LinkedList constructor function
       list.splice(0, 1);
       length = 0;
     } 
-  }
+  }; 
   
   
  this.indexOf = function(input){
     return list.map((entry) => entry.element)
           .findIndex((elm) => elm === input); 
-  }
+  }; 
   
   
  this.elementAt = function(index){
@@ -88,7 +88,7 @@ function LinkedList() { // A LinkedList constructor function
    } else {
      return undefined; 
    }
- }
+ }; 
  
   this.isEmpty = function(){
    if (list.length === 0) {
@@ -96,8 +96,31 @@ function LinkedList() { // A LinkedList constructor function
    } else {
      return false; 
    }
- }
+ }; 
  
+ 
+ this.removeAt = (index) => {
+    if (index > 0 && index === list.length-1){
+    list[index -1].next = null;  
+    list.splice(index, 1); 
+    length = length -1;      
+  } if (index > 0 && index < list.length-1){
+    list[index -1].next = list[index + 1];  
+    list.splice(index, 1); 
+    length = length -1;    
+  } if (index === 0 && list.length > 1){
+      head = list[index + 1]; 
+      list.splice(index, 1);
+      length = length-1; 
+   } if (index === 0 && list.length === 1){
+      head = null; 
+      list.splice(0, 1);
+      length = length -1; 
+   } if (index < 0 || index > list.length -1){
+     return null; 
+   }
+
+ }; 
  
 }
   
