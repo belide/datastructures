@@ -128,5 +128,45 @@ function LinkedList() { // A LinkedList constructor function
  }; 
  
  
+ 
+ this.addAt = (index, element) => {
+     switch(index < 0){
+       case true: 
+         return false;  
+         break; 
+         
+       case false: 
+         if (index > list.length){
+           return false; 
+         } else {
+           length ++
+           const elm = new Node(element);        
+           switch (index === 0){
+               
+             case true: //it is being added as a head
+               list.splice(index, 0, elm); 
+               head = elm; 
+               if (list[1]){
+                 head.next = list[1]; 
+               } else {
+                 head.next = null; 
+               }
+               return this.head(); 
+               break; 
+               
+             case false:  
+               list[index-1].next = elm;
+               elm.next = list[index + 1]; 
+               list.splice(index, 0, elm); 
+               return {elm, index}
+               }    
+             }
+         
+                     }
+    
+  }; 
+ 
+ 
+ 
 }
   
