@@ -1,0 +1,13 @@
+//function that takes total number of seconds as input and parses that into hours, minutes and seconds in an object form
+hrs, mins, seconds
+
+function secondsToTime(seconds){
+    let hrs, mins, secs, timeObject;//declaring variables 
+    let tempSec = seconds - 0; //make a copy of the seconds arg
+    hrs = parseInt(tempSec/3600); //hrs is set
+    tempSec = tempSec - hrs*3600; //remove hrs
+    mins = parseInt(tempSec/60);//mins is set
+    tempSec = tempSec - mins*60; //remove mins 
+    secs = tempSec; //seconds is left, set that to secs variable
+    return timeObject = { hrs,mins,secs } 
+ }
