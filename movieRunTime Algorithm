@@ -1,0 +1,31 @@
+Question explanation below: 
+You've built an inflight entertainment system with on-demand movie streaming.
+Users on longer flights like to start a second movie right when their first one ends, but they complain that the plane 
+usually lands before they can see the ending. So you're building a feature for choosing two movies whose total runtimes
+will equal the exact flight length.
+
+Write a function that takes an integer flightLength (in minutes) and an array of integers movieLengths (in minutes)
+and returns a boolean indicating whether there are two numbers in movieLengths whose sum equals flightLength.
+
+When building your function:
+
+1. Assume your users will watch exactly two movies
+2. Don't make your users watch the same movie twice
+3. Optimize for runtime over memory
+
+
+
+//function starts from here
+
+
+
+function areTwoMoviesPossible (arr, time){
+  let arrCopy = arr.map((entry) => entry).sort((a,b) => a-b); 
+  if(arrCopy[arrCopy.length-2] + arrCopy[arrCopy.length-1] < time){
+    console.log("You are good to watch any combination of two movies."); 
+  } else {
+  const index = arrCopy.findIndex((element) => arrCopy[0] + element > time);
+  (index < 0) ? arrCopy = arrCopy : arrCopy.splice(index); 
+  (arrCopy.length === 0) ? console.log("No combination of 2 movies will finish on time") : console.log("retreiving information")
+}
+  }
