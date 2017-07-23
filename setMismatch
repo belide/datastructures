@@ -1,0 +1,23 @@
+//Problem explanation below
+//The set S originally contains numbers from 1 to n. But unfortunately, due to the data error, one of the numbers
+//in the set got duplicated to another number in the set, which results in repetition of one number and loss of 
+//another number.
+
+//Given an array nums representing the data status of this set after the error. 
+//Your task is to firstly find the number occurs twice and then find the number that is missing. 
+//Return them in the form of an array.
+
+//Solution below
+
+
+function findErrorNums (nums) {
+    const numsCopy = nums.map((num) => num).sort(); 
+    let ind, del; 
+    const rep = numsCopy.find((elm, index) => elm === numsCopy[index + 1]);
+    ind = numsCopy.findIndex((elm) => elm === rep); 
+    const next = rep +1,
+          prev = rep -1; 
+    ind === 0 ? del = next 
+    : rep === numsCopy[ind-1] + 1 ? del = next : del = prev; 
+    return [del, rep]; 
+};
