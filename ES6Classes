@@ -1,0 +1,32 @@
+class Person {
+  
+constructor([name, age, height, weight]){
+    this.name = name; 
+    this.age = age; 
+    this.height = height; 
+    this.weight = weight; 
+  }
+  
+ get isOld(){
+    if (this.age > 30) {
+      return true; 
+    } else{
+      return false; 
+    } 
+}
+  
+}
+
+
+class Teacher extends Person{
+  constructor(subject, ...props){
+    // console.log(args); 
+    super(props)
+    this.speciality= subject; 
+  }
+  
+}
+
+
+const teacher1 = new Teacher("Maths", "Rahul", 32, 64, 180);
+console.log(teacher1.name); 
