@@ -1,0 +1,14 @@
+function solve(a0, a1, a2, b0, b1, b2){
+    let aScore = 0, 
+        bScore = 0; 
+    const arr = [(a0-b0), (a1,b1), (a2-b2)];
+  console.log(arr); 
+    arr.forEach(function(elm){
+        if (elm > 0){
+            aScore = aScore + 1; 
+        } else {
+            bScore = bScore + 1; 
+        }  
+    })
+  return {aScore, bScore}; 
+}
